@@ -1,1 +1,400 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMKN9 Shop</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fa;
+}
+
+/* HOME */
+.home{
+height:100vh;
+background:linear-gradient(135deg,#0b57d0,#42a5f5);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.home img{
+width:170px;
+height:170px;
+background:white;
+border-radius:50%;
+padding:10px;
+margin-bottom:20px;
+}
+
+.home h1{font-size:48px;}
+.home p{font-size:22px;margin:15px 0 25px;}
+
+.btn{
+background:white;
+color:#0b57d0;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* SHOP */
+.shop{
+display:none;
+padding:30px;
+background:linear-gradient(180deg,#1b0f3b,#3b1b74,#0b57d0);
+min-height:100vh;
+}
+
+header{
+background:rgba(255,255,255,.08);
+padding:20px;
+border-radius:15px;
+color:white;
+text-align:center;
+margin-bottom:25px;
+}
+
+/* USER ID */
+.userid-box{
+background:rgba(255,255,255,.08);
+padding:20px;
+border-radius:15px;
+margin-bottom:25px;
+color:white;
+}
+
+.userid-box h2{
+margin-bottom:15px;
+}
+
+.userid-box input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:8px;
+}
+
+/* PRODUK */
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
+border-radius:15px;
+overflow:hidden;
+color:white;
+}
+
+.card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.card-content{
+padding:15px;
+text-align:center;
+}
+
+.price{
+color:#ffe082;
+font-size:20px;
+font-weight:bold;
+margin:10px 0;
+}
+
+.buy{
+background:#ffd54f;
+color:#111;
+padding:10px 15px;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+}
+
+.modal-box{
+background:linear-gradient(180deg,#1b0f3b,#3b1b74,#0b57d0);
+padding:25px;
+border-radius:15px;
+width:330px;
+color:white;
+}
+
+.modal-box h2{
+margin-bottom:15px;
+text-align:center;
+}
+
+.modal-box select{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+.modal-box button{
+width:100%;
+padding:12px;
+margin-top:8px;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.success{
+background:#ffd54f;
+color:#111;
+}
+
+.cancel{
+background:#f44336;
+color:white;
+}
+
+/* CONTACT */
+.contact{
+background:rgba(255,255,255,.08);
+padding:25px;
+margin-top:35px;
+border-radius:15px;
+color:white;
+text-align:center;
+}
+
+.contact a{
+display:block;
+color:white;
+margin:10px 0;
+text-decoration:none;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<section class="home" id="home">
+<img src="smkn9.png">
+<h1>SMKN9 SHOP</h1>
+<p>Selamat Datang di SMKN9 Shop</p>
+<button class="btn" onclick="bukaToko()">Masuk Toko</button>
+</section>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+
+<header>
+<h1>Top Up MLBB</h1>
+<p>Diamond Murah & Proses Cepat
+& Tempat Joki Terpercaya</p>
+<br>
+<button class="btn" onclick="kembaliHome()">Kembali ke Home</button>
+</header>
+
+<!-- USER ID -->
+<div class="userid-box">
+<h2>Masukkan User ID MLBB</h2>
+<input type="text" id="userid" placeholder="Masukkan User ID">
+<input type="text" id="zoneid" placeholder="Masukkan Zone ID">
+</div>
+
+<!-- PRODUK -->
+<div class="products">
+
+<div class="card"><img src="diamond.jpg"><div class="card-content"><h3>86 Diamond</h3><p class="price">Rp20.000</p><button class="buy" onclick="beliProduk()">Beli</button></div></div>
+
+<div class="card"><img src="diamond.jpg"><div class="card-content"><h3>172 Diamond</h3><p class="price">Rp39.000</p><button class="buy" onclick="beliProduk()">Beli</button></div></div>
+
+<div class="card"><img src="diamond1.jpg"><div class="card-content"><h3>257 Diamond</h3><p class="price">Rp58.000</p><button class="buy" onclick="beliProduk()">Beli</button></div></div>
+
+<div class="card"><img src="diamond2.jpg"><div class="card-content"><h3>344 Diamond</h3><p class="price">Rp77.000</p><button class="buy" onclick="beliProduk()">Beli</button></div></div>
+
+<div class="card"><img src="diamond2.jpg"><div class="card-content"><h3>429 Diamond</h3><p class="price">Rp96.000</p><button class="buy" onclick="beliProduk()">Beli</button></div></div>
+
+<div class="card"><img src="wdp.jpg"><div class="card-content"><h3>Weekly Pass</h3><p class="price">Rp28.000</p><button class="buy" onclick="beliProduk()">Beli</button></div></div>
+
+<div class="card"><img src="star.jpg"><div class="card-content"><h3>Starlight</h3><p class="price">Rp149.000</p><button class="buy" onclick="beliProduk()">Beli</button></div></div>
+
+<!--BAGIAN JOKI RANK -->
+
+<div class="card">
+<img src="joki.jpg">
+
+<div class="card-content">
+<h3>Joki Rank</h3>
+
+<select id="rankjoki" style="width:100%;padding:10px;border:none;border-radius:8px;margin-bottom:10px;">
+<option value="">Pilih Rank</option>
+<option>Mytik Honor</option>
+<option>Mytik Glory</option>
+<option>Mytik Immortal</option>
+</select>
+
+<!-- GAMBAR RANK -->
+<div style="display:flex;justify-content:center;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+
+<div style="text-align:center;">
+<img src="honor.png" style="width:55px;height:55px;border-radius:8px;"><br>
+<small>Honor</small>
+</div>
+
+<div style="text-align:center;">
+<img src="glory.png" style="width:55px;height:55px;border-radius:8px;"><br>
+<small>Glory</small>
+</div>
+
+<div style="text-align:center;">
+<img src="immo.png" style="width:55px;height:55px;border-radius:8px;"><br>
+<small>Immortal</small>
+</div>
+
+</div>
+
+<p class="price">Joki PerBintang 10rb</p>
+
+<a href="https://wa.me/6281234567890" target="_blank"
+style="
+display:block;
+background:#25D366;
+color:white;
+padding:10px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin-top:10px;
+">
+Nomor Admin
+</a>
+
+</div>
+</div>
+</div>
+
+<script>
+function pesanJoki(){
+let rank = document.getElementById("rankjoki").value;
+
+if(rank==""){
+alert("Pilih rank joki terlebih dahulu!");
+}else{
+window.open("https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Joki%20Rank%20"+rank,"_blank");
+}
+}
+</script>
+
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+<h2>Contact Me</h2>
+<a href="https://wa.me/6281234567890" target="_blank">📱 WhatsApp : 081234567890</a>
+<a href="mailto:smkn9shop@gmail.com">📧 Email : smkn9shop@gmail.com</a>
+</div>
+
+<footer>
+<p>&copy; 2026 SMKN9 Shop</p>
+</footer>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modalBayar">
+<div class="modal-box">
+<h2>Pilih Metode Pembayaran</h2>
+
+<select id="metode">
+<option value="">-- Pilih Pembayaran --</option>
+<option>ShopeePay</option>
+<option>DANA</option>
+<option>GoPay</option>
+</select>
+
+<button class="success" onclick="prosesBayar()">Bayar Sekarang</button>
+<button class="cancel" onclick="tutupModal()">Batal</button>
+
+</div>
+</div>
+
+<script>
+function bukaToko(){
+document.getElementById("home").style.display="none";
+document.getElementById("shop").style.display="block";
+}
+
+function kembaliHome(){
+document.getElementById("shop").style.display="none";
+document.getElementById("home").style.display="flex";
+}
+
+function beliProduk(){
+let user=document.getElementById("userid").value;
+let zone=document.getElementById("zoneid").value;
+
+if(user=="" || zone==""){
+alert("Masukkan User ID dan Zone ID terlebih dahulu!");
+}else{
+document.getElementById("modalBayar").style.display="flex";
+}
+}
+
+function tutupModal(){
+document.getElementById("modalBayar").style.display="none";
+}
+
+function prosesBayar(){
+let metode=document.getElementById("metode").value;
+
+if(metode==""){
+alert("Pembelian Gagal! Pilih metode pembayaran.");
+}else{
+alert("Pembelian Berhasil menggunakan "+metode);
+document.getElementById("modalBayar").style.display="none";
+}
+}
+</script>
+
+</body>
+  </html>
